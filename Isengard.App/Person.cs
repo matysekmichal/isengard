@@ -11,7 +11,7 @@ namespace Isengard.App
         public Address Address { get; private set; }
         public string Email { get; private set; }
 
-        private List<Pet> listOfPets;
+        private List<Pet> ListOfPets;
 
         public enum TypesGender
         {

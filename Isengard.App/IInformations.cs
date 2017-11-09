@@ -2,6 +2,6 @@
 {
     public interface IInformations
     {
-        void ShowInformations();
+        void ShowDetails();
     }
 }

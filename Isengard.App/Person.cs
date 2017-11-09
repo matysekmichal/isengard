@@ -37,7 +37,7 @@ namespace Isengard.App
 
         public static Person CreatePerson()
         {
-            
+            return new Person();
         }
 
         public void ShowDetails()

@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace Isengard.App
 {
-    class Address : IInformations
+    public class Address : IInformations
     {
         public string Street { get; private set; }
         public string City { get; private set; }
         public string PostCode { get; private set; }
         public string StreetNumber { get; private set; }
+
+        public Address()
+        {
+            
+        }
 
         public void ShowDetails()
         {

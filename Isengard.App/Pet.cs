@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,10 +12,15 @@ namespace Isengard.App
         public string Name { get; private set; }
         public int Age { get; private set; }
 
-        public Pet(string name, int age)
+        public Pet()
         {
-            Name = name;
-            Age = age;
+            this.SetData(Toolbox.NoData, Toolbox.NoNumber);
+
+        }
+
+        public Pet(string Name, int Age) :this()
+        {
+          this.SetData(Name,Age);
         }
 
         public enum TypeOfPet
@@ -24,8 +30,12 @@ namespace Isengard.App
             NoData = 0x0000
         }
 
-        public void SetData()
+        public abstract Pet SetData();
+        
+          
+        public void SetData(string Name, int Age)
         {
+           
 
         }
 

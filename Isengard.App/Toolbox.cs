@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Isengard.App
 {
+
     public class Toolbox
     {
+        public static string NoName = "Brak danych";
         public static string NoData = "Brak Danych";
         public static int NoNumber = 0;
 

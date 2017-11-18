@@ -15,7 +15,6 @@ namespace Isengard.App
         public Pet()
         {
             this.SetData(Toolbox.NoData, Toolbox.NoNumber);
-
         }
 
         public Pet(string Name, int Age) :this()
@@ -31,11 +30,11 @@ namespace Isengard.App
         }
 
         public abstract Pet SetData();
-        
-          
+
+
         public void SetData(string Name, int Age)
         {
-           
+
 
         }
 
@@ -45,7 +44,7 @@ namespace Isengard.App
 
         public void ShowDetails()
         {
-           
+
         }
     }
 }

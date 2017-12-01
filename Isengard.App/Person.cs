@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System;
 
 namespace Isengard.App
 {
@@ -22,7 +23,7 @@ namespace Isengard.App
 
         public Person()
         {
-            this.TypesGender = TypesGender.NoData;
+            this.Gender = TypesGender.NoData;
             this.SetData(Toolbox.NoData, Toolbox.NoData);
             this.Address = new Address();
         }
@@ -35,9 +36,9 @@ namespace Isengard.App
 
         public void SetData(string name, string surname)
         {
-            if (!string.IsNotNullOrEmpty(name))
+            if (!string.IsNullOrEmpty(name))
                 Name = name;
-            if (!string.IsNotNullOrEmpty(surname))
+            if (!string.IsNullOrEmpty(surname))
                 Surname = surname;
         }
 
@@ -55,7 +56,7 @@ namespace Isengard.App
             result.SetData(Toolbox.inputString("Podaj imie:", true),
                            Toolbox.inputString("Podaj nazwisko:", false));
 
-            result.Adres.SetData(Toolbox.inputString("Podaj ulice:", false),
+            result.Address.SetData(Toolbox.inputString("Podaj ulice:", false),
                                  Toolbox.inputString("Podaj miasto:", false),
                                  Toolbox.inputString("Podaj kod pocztowy:", false),
                                  Toolbox.inputInteger("Podaj nr domu:", 1, int.MaxValue));

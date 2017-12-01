@@ -27,20 +27,57 @@ namespace Isengard.App
             this.SetData(Toolbox.NoData, Toolbox.NoData);
             this.Address = new Address();
         }
-
-        public Person(string name, string surname)
+        public Person(TypesGender gender ) :this ()
         {
-            Name = name;
-            Surname = surname;
+            this.Gender = gender;
+            this.SetData(Toolbox.NoData, Toolbox.NoData);
+            this.Address = new Address();
         }
+        public Person(TypesGender gender,string name,string surname) : this()
+        {
+            this.Gender = gender;
+            this.SetData(Toolbox.inputString(name,false), Toolbox.inputString(surname,false));
+            this.Address = new Address();
+        }
+        public Person(TypesGender gender, string name, string surname,string age) : this()
+        {
+            this.Gender = gender;
+            this.SetData(Toolbox.inputString(name, false), Toolbox.inputString(surname, false),Toolbox.inputInteger(age,0,99));
+            this.Address = new Address();
+        }
+        public Person(TypesGender gender, string name, string surname, string age,string email) : this()
+        {
+            this.Gender = gender;
+            this.SetData(Toolbox.inputString(name, false), Toolbox.inputString(surname, false), Toolbox.inputInteger(age, 0, 99),Toolbox.inputString(email,false));
+            this.Address = new Address();
+        }
+
+
 
         public void SetData(string name, string surname)
         {
-            if (!string.IsNullOrEmpty(name))
-                Name = name;
-            if (!string.IsNullOrEmpty(surname))
-                Surname = surname;
+            
+                this.Name = name;
+                this.Surname = surname;
         }
+        public void SetData(string name, string surname, int age)
+        {
+
+            this.Name = name;
+            this.Surname = surname;
+            this.Age = age;
+
+        }
+        public void SetData(string name, string surname, int age,string email)
+        {
+
+            this.Name = name;
+            this.Surname = surname;
+            this.Age = age;
+            this.Email = email;
+
+        }
+
 
         public void AdoptPet(Pet pet)
         {
@@ -53,8 +90,10 @@ namespace Isengard.App
 
             Console.WriteLine("=== Wprowadź dane nowej osoby ===");
 
-            result.SetData(Toolbox.inputString("Podaj imie:", true),
-                           Toolbox.inputString("Podaj nazwisko:", false));
+            result.SetData(Toolbox.inputString("Podaj imie:", false),
+                           Toolbox.inputString("Podaj nazwisko:", false),
+                           Toolbox.inputInteger("Podaj nazwisko",0,99),
+                           Toolbox.inputString("Podaj email: ",false));
 
             result.Address.SetData(Toolbox.inputString("Podaj ulice:", false),
                                  Toolbox.inputString("Podaj miasto:", false),

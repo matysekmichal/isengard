@@ -11,7 +11,14 @@ namespace Isengard.App
     {
         public string Name { get; private set; }
         public int Age { get; private set; }
-
+        public TypeOfPet Type { get; private set; }
+       
+        public enum TypeOfPet
+        {
+            Domestic = 0x0001,
+            Farm = 0x0002,
+            NoData = 0x0000
+        }
         public Pet()
         {
             this.SetData(Toolbox.NoData, Toolbox.NoNumber);
@@ -22,19 +29,19 @@ namespace Isengard.App
           this.SetData(Name,Age);
         }
 
-        public enum TypeOfPet
-        {
-            Domestic = 0x0001,
-            Farm = 0x0002,
-            NoData = 0x0000
-        }
-
         public abstract Pet SetData();
 
 
         public void SetData(string Name, int Age)
         {
-
+            this.Name = Name;
+            this.Age = Age;
+        }
+        public void SetData(TypeOfPet type) 
+        {
+            this.Name = Name;
+            this.Age = Age;
+            this.Type = type;
 
         }
 

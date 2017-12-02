@@ -8,7 +8,8 @@ namespace Isengard.App
         {
             Console.WriteLine("Hello world!");
             var person = new Person();
-            
+
+            Toolbox.InputEmail("Podaj adres email:");
         }
     }
 }

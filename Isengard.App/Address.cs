@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Isengard.App
 {
@@ -18,34 +14,36 @@ namespace Isengard.App
             this.SetData(Toolbox.NoData, Toolbox.NoData, Toolbox.NoData, Toolbox.NoNumber);
         }
 
-        public Address(string Street, string City, string PostCode, int StreetNumber) : this()
+        public Address(string street, string city, string postCode, int streetNumber) : this()
         {
-            this.SetData(Street,City,PostCode,StreetNumber);
-        }
-        public void ShowDetails()
-        {
-            
+            this.SetData(street, city, postCode, streetNumber);
         }
 
-        public static Address SetData() //Podananie informacji dla wszystkich pól i przekazanie do metody SetData
+        public void ShowDetails()
         {
-            Address result = new Address();
+            Console.WriteLine($"{Street} {StreetNumber}, {PostCode} {City}");
+        }
+
+        public static Address SetData()
+        {
+            var address = new Address();
 
             Console.WriteLine("Wprowadź dane nowego adresu");
 
-            result.SetData(Toolbox.inputString("Podaj ulicę: ",false), 
-                          Toolbox.inputString("Podaj Miasto: ", false),
-                          Toolbox.inputString("Podaj Kod Pocztowy: ", false), 
-                          Toolbox.inputInteger("Nr Domu: ",1,200));
-            return result;
+            address.SetData(Toolbox.InputString("Podaj ulicę: ",false), 
+                          Toolbox.InputString("Podaj Miasto: ", false),
+                          Toolbox.InputString("Podaj Kod Pocztowy: ", false), 
+                          Toolbox.InputInteger("Nr Domu: ",1,200));
+
+            return address;
         }
 
-        public void SetData(string Street, string City, string PostCode, int StreetNumber)
+        public void SetData(string street, string city, string postCode, int streetNumber)
         {
-            this.Street = Street;
-            this.City = City;
-            this.PostCode = PostCode;
-            this.StreetNumber = StreetNumber;
+            this.Street = street;
+            this.City = city;
+            this.PostCode = postCode;
+            this.StreetNumber = streetNumber;
         }
     }
     

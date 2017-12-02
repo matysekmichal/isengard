@@ -23,13 +23,13 @@ namespace Isengard.App
 
         public void SetPet(Pet pet)
         {
-            
+           
         }
 
-        public Pet GetPet(int IdPet)
-        {
-            return new Pet();
-        }
+        //public Pet GetPet(int IdPet)
+        //{
+        //    return new Pet();
+        //}
 
         public void ShowDetails()
         {

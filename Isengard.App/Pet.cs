@@ -17,41 +17,45 @@ namespace Isengard.App
         {
             Domestic = 0x0001,
             Farm = 0x0002,
-            NoData = 0x0000
+            NoData = 0x0000,
         }
+
         public Pet()
         {
-            this.SetData(Toolbox.NoData, Toolbox.NoNumber);
+            SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData);
         }
 
-        public Pet(string Name, int Age) :this()
+        public Pet(string name)
         {
-          this.SetData(Name,Age);
+            SetData(name, Toolbox.NoNumber, TypeOfPet.NoData);
         }
 
-        public abstract Pet SetData();
-
-
-        public void SetData(string Name, int Age)
+        public Pet(string name, int age)
         {
-            this.Name = Name;
-            this.Age = Age;
+            SetData(name, age, TypeOfPet.NoData);
         }
-        public void SetData(TypeOfPet type) 
+
+        public Pet(string name, int age, TypeOfPet type)
         {
-            this.Name = Name;
-            this.Age = Age;
-            this.Type = type;
-
+            SetData(name, age, type);
         }
 
-        public abstract string Species();
-        public abstract string Taste();
-        public abstract void LetsPetSaySomething();
+        public void SetData(string name, int age, TypeOfPet type)
+        {
+            Name = name;
+            Age = age;
+            Type = type;
+        }
 
         public void ShowDetails()
         {
-
+            Console.WriteLine($"Imię: {Name}, wiek: {Age}, typ: {Type}.");
         }
+
+        public virtual void CreatePet() {}
+        public abstract string Species();
+        public abstract string Taste();
+        public abstract Pet SetData();
+        public abstract void LetsPetSaySomething();
     }
 }

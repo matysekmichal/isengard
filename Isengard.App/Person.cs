@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System;
+using System.Net.Mail;
 
 namespace Isengard.App
 {
@@ -10,7 +11,7 @@ namespace Isengard.App
         public int Age { get; private set; }
         public TypesGender Gender { get; private set; }
         public Address Address { get; private set; }
-        public string Email { get; private set; }
+        public MailAddress Email { get; private set; }
 
         private List<Pet> ListOfPets;
 
@@ -27,57 +28,54 @@ namespace Isengard.App
             this.SetData(Toolbox.NoData, Toolbox.NoData);
             this.Address = new Address();
         }
+
         public Person(TypesGender gender ) :this ()
         {
             this.Gender = gender;
             this.SetData(Toolbox.NoData, Toolbox.NoData);
             this.Address = new Address();
         }
+
         public Person(TypesGender gender,string name,string surname) : this()
         {
             this.Gender = gender;
-            this.SetData(Toolbox.inputString(name,false), Toolbox.inputString(surname,false));
+            this.SetData(Toolbox.InputString(name,false), Toolbox.InputString(surname,false));
             this.Address = new Address();
         }
+
         public Person(TypesGender gender, string name, string surname,string age) : this()
         {
             this.Gender = gender;
-            this.SetData(Toolbox.inputString(name, false), Toolbox.inputString(surname, false),Toolbox.inputInteger(age,0,99));
+            this.SetData(Toolbox.InputString(name, false), Toolbox.InputString(surname, false),Toolbox.InputInteger(age,0,99));
             this.Address = new Address();
         }
+
         public Person(TypesGender gender, string name, string surname, string age,string email) : this()
         {
             this.Gender = gender;
-            this.SetData(Toolbox.inputString(name, false), Toolbox.inputString(surname, false), Toolbox.inputInteger(age, 0, 99),Toolbox.inputString(email,false));
+            this.SetData(Toolbox.InputString(name, false), Toolbox.InputString(surname, false), Toolbox.InputInteger(age, 0, 99),Toolbox.InputEmail(email));
             this.Address = new Address();
         }
 
-
-
         public void SetData(string name, string surname)
         {
-            
                 this.Name = name;
                 this.Surname = surname;
         }
         public void SetData(string name, string surname, int age)
         {
-
             this.Name = name;
             this.Surname = surname;
             this.Age = age;
 
         }
-        public void SetData(string name, string surname, int age,string email)
+        public void SetData(string name, string surname, int age, MailAddress email)
         {
-
             this.Name = name;
             this.Surname = surname;
             this.Age = age;
             this.Email = email;
-
         }
-
 
         public void AdoptPet(Pet pet)
         {
@@ -86,19 +84,19 @@ namespace Isengard.App
 
         public static Person CreatePerson()
         {
-            Person result = new Person();
+            var result = new Person();
 
             Console.WriteLine("=== Wprowadź dane nowej osoby ===");
 
-            result.SetData(Toolbox.inputString("Podaj imie:", false),
-                           Toolbox.inputString("Podaj nazwisko:", false),
-                           Toolbox.inputInteger("Podaj nazwisko",0,99),
-                           Toolbox.inputString("Podaj email: ",false));
+            result.SetData(Toolbox.InputString("Podaj imie:", false),
+                Toolbox.InputString("Podaj nazwisko:", false),
+                Toolbox.InputInteger("Podaj nazwisko",0,120),
+                Toolbox.InputEmail("Podaj email: "));
 
-            result.Address.SetData(Toolbox.inputString("Podaj ulice:", false),
-                                 Toolbox.inputString("Podaj miasto:", false),
-                                 Toolbox.inputString("Podaj kod pocztowy:", false),
-                                 Toolbox.inputInteger("Podaj nr domu:", 1, int.MaxValue));
+            result.Address.SetData(Toolbox.InputString("Podaj ulice:", false),
+                Toolbox.InputString("Podaj miasto:", false),
+                Toolbox.InputString("Podaj kod pocztowy:", false),
+                Toolbox.InputInteger("Podaj nr domu:", 1, int.MaxValue));
 
             return result;
         }

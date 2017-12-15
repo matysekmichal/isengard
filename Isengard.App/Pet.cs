@@ -7,49 +7,46 @@ using System.Threading.Tasks;
 
 namespace Isengard.App
 {
-    public  class Pet : IInformations
+   public abstract class Pet : IInformations
     {
-        public string Name { get; private set; }
-        public int Age { get; private set; }
-        public TypeOfPet Type { get; private set; }
-        public string Species { get; private set; }
-        public string Taste { get; private set; }
-
+        public string Name { get; protected set; }
+        public int Age { get; protected set; }
+        public TypeOfPet Type { get; protected set; }
 
         public enum TypeOfPet
         {
-            Domestic= 0x0001,
-            Farm = 0x0002,
-            NoData = 0x0000,
+            Domestic= 1,
+            Farm = 2,
+            NoData = 0,
         }
         
         public Pet()
         {
 
-            this.SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData, Toolbox.NoData, Toolbox.NoData );
+            this.SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData);
         }
 
        
         public Pet(string name, int age, TypeOfPet type, string species, string taste): this()
         {
-            SetData(name, age, type, species, taste);
+            SetData(name, age, type);
         }
 
-        public void SetData(string name, int age, TypeOfPet type, string species, string taste)
+        public void SetData(string name, int age, TypeOfPet type)
         {
             this.Name = name;
             this.Age = age;
             this.Type = type;
-            this.Species= species;
-            this.Taste = taste;
+            
         }
+        public abstract string Species { get; set; }
+        public abstract string Taste { get; set; }
 
-        public void ShowDetails()
+        public virtual void ShowDetails()
         {
             Console.WriteLine($"Imię: {Name}, wiek: {Age}, typ: {Type}, gatunek:{Species}.");
         }
-
-        //public virtual void CreatePet() { }
+        
                 
       
     }

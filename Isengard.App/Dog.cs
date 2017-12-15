@@ -2,29 +2,56 @@
 
 namespace Isengard.App
 {
-   public abstract class Dog : Pet
+   public class Dog : Pet
    {
-       public string Spieces { get; set; }
-       public string TasteDog { get; set; }
+       public override string Species { get; set; }
+       public override string Taste { get; set; }
+      
+
+        public Dog() :base()
+        {
+            this.SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData,Toolbox.NoData,Toolbox.NoData);
+        }
+        public Dog(string name, int age, TypeOfPet type) : base()
+        {
+            SetData(name, age, type);
+        }
+
         
-       public  string Taste()
-       {
-           throw new NotImplementedException();
-       }
+        public Dog(string name, int age, TypeOfPet type, string species, string taste): base()
+        {
+            SetData(name, age, type,species,taste);
+        }
+        new public void SetData(string name, int age, TypeOfPet type)
+        {
+            base.Name = name;
+            base.Age = age;
+            base.Type = type;
+        }
+        public void SetData(string name, int age, TypeOfPet type, string species, string taste)
+        {
+            base.Name = name;
+            base.Age = age;
+            base.Type = type;
+            this.Species = species;
+            this.Taste = taste;
 
-        //public override Pet CreatePet()
-        //{
-        //        var result = new Dog();
+        }
+        public Pet CreatePet()
+        {
+            var result = new Dog();
 
-        //        Console.WriteLine("=== Wprowadź dane nowego psa ===");
+            Console.WriteLine("=== Wprowadź dane nowego psa ===");
 
-        //        result.SetData(Toolbox.inputString("Podaj imie:", false),
-        //            Toolbox.inputString("Podaj nazwisko:", false),
-        //            Toolbox.inputInteger("Podaj nazwisko", 0, 120),
-        //            Toolbox.inputString("Podaj email: ", false));
+            result.SetData(Toolbox.InputString("Podaj imie psa :", false),
+                Toolbox.InputInteger("Podaj wiek psa:", 0, 20),
+                TypeOfPet.NoData,
+                Toolbox.InputString("Gatunek psa :", false),
+                Toolbox.InputString("Rasa psa :", false)
+                );
 
-        //        return result;
-        //}
-        
-   }
+            return result;
+        }
+
+    }
 }

@@ -8,7 +8,7 @@ namespace Isengard.App
 {
     class Zoo : IInformations
     {
-        private static Zoo instance;
+        private static Zoo instance { get; set; }
         private List<Pet> ListOfPets = new List<Pet>();
 
         public Zoo()
@@ -27,10 +27,14 @@ namespace Isengard.App
             ListOfPets.Add(pet);
         }
 
-        //public Pet GetPet(int i_id)
-        //{
-        //    return new Pet();
-        //}
+        public Pet GetPet(int i_id)
+        {
+            if(i_id >=0 && i_id<ListOfPets.Count )
+            {
+                Console.WriteLine("Nie ma takiego zwiarzaka na liscie");
+            }
+            var pet = 
+        }
 
         public void ShowDetails()
         {

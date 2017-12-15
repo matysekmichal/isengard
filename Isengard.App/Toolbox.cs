@@ -12,7 +12,7 @@ namespace Isengard.App
     {
         public static string NoData = "Brak danych";
         public static int NoNumber = 0;
-
+        
         public static int InputInteger(string inputText, int min, int max)
         {
             int result = 0;
@@ -77,6 +77,8 @@ namespace Isengard.App
             }
 
             return result;
+
+        
         }
     }
 

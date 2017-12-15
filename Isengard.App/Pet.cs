@@ -7,55 +7,51 @@ using System.Threading.Tasks;
 
 namespace Isengard.App
 {
-    public abstract class Pet : IInformations
+    public  class Pet : IInformations
     {
         public string Name { get; private set; }
         public int Age { get; private set; }
         public TypeOfPet Type { get; private set; }
-       
+        public string Species { get; private set; }
+        public string Taste { get; private set; }
+
+
         public enum TypeOfPet
         {
-            Domestic = 0x0001,
+            Domestic= 0x0001,
             Farm = 0x0002,
             NoData = 0x0000,
         }
-
+        
         public Pet()
         {
-            SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData);
+
+            this.SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData, Toolbox.NoData, Toolbox.NoData );
         }
 
-        public Pet(string name)
+       
+        public Pet(string name, int age, TypeOfPet type, string species, string taste): this()
         {
-            SetData(name, Toolbox.NoNumber, TypeOfPet.NoData);
+            SetData(name, age, type, species, taste);
         }
 
-        public Pet(string name, int age)
+        public void SetData(string name, int age, TypeOfPet type, string species, string taste)
         {
-            SetData(name, age, TypeOfPet.NoData);
-        }
-
-        public Pet(string name, int age, TypeOfPet type)
-        {
-            SetData(name, age, type);
-        }
-
-        public void SetData(string name, int age, TypeOfPet type)
-        {
-            Name = name;
-            Age = age;
-            Type = type;
+            this.Name = name;
+            this.Age = age;
+            this.Type = type;
+            this.Species= species;
+            this.Taste = taste;
         }
 
         public void ShowDetails()
         {
-            Console.WriteLine($"Imię: {Name}, wiek: {Age}, typ: {Type}.");
+            Console.WriteLine($"Imię: {Name}, wiek: {Age}, typ: {Type}, gatunek:{Species}.");
         }
 
-        public virtual void CreatePet() {}
-        public abstract string Species();
-        public abstract string Taste();
-        public abstract Pet SetData();
-        public abstract void LetsPetSaySomething();
+        public virtual void CreatePet() { }
+                
+      
     }
+    
 }

@@ -49,7 +49,7 @@ namespace Isengard.App
             Console.WriteLine($"Imię: {Name}, wiek: {Age}, typ: {Type}, gatunek:{Species}.");
         }
 
-        public virtual void CreatePet() { }
+        //public virtual void CreatePet() { }
                 
       
     }

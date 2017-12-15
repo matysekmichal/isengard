@@ -7,9 +7,13 @@ namespace Isengard.App
         private static void Main()
         {
             Console.WriteLine("Hello world!");
-            var person = new Person();
+           // var person = new Person();
 
-            Toolbox.InputEmail("Podaj adres email:");
+           // Toolbox.InputEmail("Podaj adres email:");
+
+            var zoo = new Zoo();
+            var labrador = zoo.SetPet();
+
         }
     }
 }

@@ -2,32 +2,38 @@
 
 namespace Isengard.App
 {
-   public class Dog : Pet
-   {
-       public override string Species { get; set; }
-       public override string Taste { get; set; }
-      
+    public class Dog : Pet
+    {
+        public override string Species { get; set; }
+        public override string Taste { get; set; }
 
         public Dog() :base()
         {
-            this.SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData,Toolbox.NoData,Toolbox.NoData);
+            SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData, Toolbox.NoData, Toolbox.NoData);
         }
+
+        public Dog(string name, int age) :base()
+        {
+            SetData(name, age, TypeOfPet.NoData);
+        }
+
         public Dog(string name, int age, TypeOfPet type) : base()
         {
             SetData(name, age, type);
         }
 
-        
         public Dog(string name, int age, TypeOfPet type, string species, string taste): base()
         {
             SetData(name, age, type,species,taste);
         }
-        new public void SetData(string name, int age, TypeOfPet type)
+
+        public void SetData(string name, int age, TypeOfPet type)
         {
             base.Name = name;
             base.Age = age;
             base.Type = type;
         }
+
         public void SetData(string name, int age, TypeOfPet type, string species, string taste)
         {
             base.Name = name;
@@ -35,8 +41,8 @@ namespace Isengard.App
             base.Type = type;
             this.Species = species;
             this.Taste = taste;
-
         }
+
         public Pet CreatePet()
         {
             var result = new Dog();
@@ -52,6 +58,5 @@ namespace Isengard.App
 
             return result;
         }
-
     }
 }

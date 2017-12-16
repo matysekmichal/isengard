@@ -22,10 +22,8 @@ namespace Isengard.App
         
         public Pet()
         {
-
             this.SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData);
         }
-
        
         public Pet(string name, int age, TypeOfPet type, string species, string taste): this()
         {
@@ -37,8 +35,8 @@ namespace Isengard.App
             this.Name = name;
             this.Age = age;
             this.Type = type;
-            
         }
+
         public abstract string Species { get; set; }
         public abstract string Taste { get; set; }
 
@@ -46,9 +44,5 @@ namespace Isengard.App
         {
             Console.WriteLine($"Imię: {Name}, wiek: {Age}, typ: {Type}, gatunek:{Species}.");
         }
-        
-                
-      
     }
-    
 }

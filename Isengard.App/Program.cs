@@ -10,8 +10,6 @@ namespace Isengard.App
             var person = new Person();
 
             Person.CreatePerson();
-
-
         }
     }
 }

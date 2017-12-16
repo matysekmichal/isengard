@@ -11,12 +11,6 @@ namespace Isengard.App
         private static Zoo instance { get; set; }
         private List<Pet> ListOfPets = new List<Pet>();
 
-        public Zoo()
-        {
-           
-        }
-
-
         public static Zoo Instance()
         {
             return new Zoo();
@@ -29,11 +23,8 @@ namespace Isengard.App
 
         public Pet GetPet(int i_id)
         {
-            if(i_id >=0 && i_id<ListOfPets.Count )
-            {
-                Console.WriteLine("Nie ma takiego zwiarzaka na liscie");
-            }
-            var pet = 
+            var result = ListOfPets.ElementAt(i_id);
+            return result;
         }
 
         public void ShowDetails()

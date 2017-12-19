@@ -10,7 +10,8 @@ namespace Isengard.App
 
     public class Toolbox
     {
-        public static string NoData = "Brak danych";
+        public static long NoLong = 0;
+         public static string NoData = "Brak danych";
         public static int NoNumber = 0;
         
         public static int InputInteger(string inputText, int min, int max)

@@ -2,29 +2,61 @@
 
 namespace Isengard.App
 {
-   public abstract class Dog : Pet
-   {
-       public string Spieces { get; set; }
-       public string TasteDog { get; set; }
-        
-       public  string Taste()
-       {
-           throw new NotImplementedException();
-       }
+    public class Dog : Pet
+    {
+        public override string Species { get; set; }
+        public override string Taste { get; set; }
 
-        //public override Pet CreatePet()
-        //{
-        //        var result = new Dog();
+        public Dog() :base()
+        {
+            SetData(Toolbox.NoData, Toolbox.NoNumber, TypeOfPet.NoData, Toolbox.NoData, Toolbox.NoData);
+        }
 
-        //        Console.WriteLine("=== Wprowadź dane nowego psa ===");
+        public Dog(string name, int age) :base()
+        {
+            SetData(name, age, TypeOfPet.NoData);
+        }
 
-        //        result.SetData(Toolbox.inputString("Podaj imie:", false),
-        //            Toolbox.inputString("Podaj nazwisko:", false),
-        //            Toolbox.inputInteger("Podaj nazwisko", 0, 120),
-        //            Toolbox.inputString("Podaj email: ", false));
+        public Dog(string name, int age, TypeOfPet type) : base()
+        {
+            SetData(name, age, type);
+        }
 
-        //        return result;
-        //}
-        
-   }
+        public Dog(string name, int age, TypeOfPet type, string species, string taste): base()
+        {
+            SetData(name, age, type,species,taste);
+        }
+
+        public void SetData(string name, int age, TypeOfPet type)
+        {
+            base.Name = name;
+            base.Age = age;
+            base.Type = type;
+        }
+
+        public void SetData(string name, int age, TypeOfPet type, string species, string taste)
+        {
+            base.Name = name;
+            base.Age = age;
+            base.Type = type;
+            this.Species = species;
+            this.Taste = taste;
+        }
+
+        public Pet CreatePet()
+        {
+            var result = new Dog();
+
+            Console.WriteLine("=== Wprowadź dane nowego psa ===");
+
+            result.SetData(Toolbox.InputString("Podaj imie psa :", false),
+                Toolbox.InputInteger("Podaj wiek psa:", 0, 20),
+                TypeOfPet.NoData,
+                Toolbox.InputString("Gatunek psa :", false),
+                Toolbox.InputString("Rasa psa :", false)
+                );
+
+            return result;
+        }
+    }
 }

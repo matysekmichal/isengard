@@ -9,7 +9,14 @@ namespace Isengard.App
             Console.WriteLine("Hello world!");
             var person = new Person();
 
-            Toolbox.InputEmail("Podaj adres email:");
+            var pies = new Dog("Reksio", 3);
+            var zoo = new Zoo();
+            zoo.SetPet(pies);
+            var pet = zoo.GetPet(0);
+
+            Console.WriteLine($"To jest: {pet.Name} i ma {pet.Age} lat.");
+
+            Person.CreatePerson();
         }
     }
 }

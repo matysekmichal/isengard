@@ -90,7 +90,7 @@ namespace Isengard.App
 
             result.SetData(Toolbox.InputString("Podaj imie:", false),
                 Toolbox.InputString("Podaj nazwisko:", false),
-                Toolbox.InputInteger("Podaj nazwisko",0,120),
+                Toolbox.InputInteger("Podaj wiek",0,120),
                 Toolbox.InputEmail("Podaj email: "));
 
             result.Address.SetData(Toolbox.InputString("Podaj ulice:", false),

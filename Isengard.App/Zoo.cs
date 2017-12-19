@@ -8,13 +8,8 @@ namespace Isengard.App
 {
     class Zoo : IInformations
     {
-        private static Zoo instance;
-        private List<Pet> ListOfPets;
-
-        public Zoo()
-        {
-
-        }
+        private static Zoo instance { get; set; }
+        private List<Pet> ListOfPets = new List<Pet>();
 
         public static Zoo Instance()
         {
@@ -23,17 +18,23 @@ namespace Isengard.App
 
         public void SetPet(Pet pet)
         {
-           
+            ListOfPets.Add(pet);
         }
 
-        //public Pet GetPet(int IdPet)
-        //{
-        //    return new Pet();
-        //}
+        public Pet GetPet(int i_id)
+        {
+            var result = ListOfPets.ElementAt(i_id);
+            return result;
+        }
 
         public void ShowDetails()
         {
-            throw new NotImplementedException();
+            foreach (var pet in ListOfPets)
+            {
+                Console.WriteLine(pet);
+            }
+
+            
         }
     }
 }

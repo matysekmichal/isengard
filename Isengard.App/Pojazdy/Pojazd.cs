@@ -33,7 +33,7 @@ namespace Isengard.App
 
         public virtual void WyswietlInformacje()
         {
-
+            //NAPRAWA
         }
 
         public abstract string Marka()

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Isengard.App
 {
-    abstract class Pojazd 
+    abstract class Pojazd
     {
         public enum RodzajPojazdu
         {

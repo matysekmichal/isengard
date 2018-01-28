@@ -33,8 +33,6 @@ namespace Isengard.App
             {
                 Console.WriteLine(pet);
             }
-
-            
         }
     }
 }

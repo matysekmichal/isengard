@@ -12,12 +12,12 @@ namespace Isengard.App
     {
         public long MaksymalnaIloscPaliwa { get; private set; }
         public long IloscPaliwa { get; private set; }
+       
         public ZbiornikPaliwa ()
         {
             MaksymalnaIloscPaliwa = Toolbox.NoLong ;
             IloscPaliwa = Toolbox.NoLong;        
-         }
-        
+        }
 
         public void Dotankuj(long iloscPaliwa)
         {
@@ -30,6 +30,7 @@ namespace Isengard.App
             {
                 throw new Exception("Przetankowales");
             }
+
             IloscPaliwa = obecnyStanPaliwa;
         }
         public long Pobierz(long iloscPaliwa)
@@ -39,12 +40,14 @@ namespace Isengard.App
             {
                 return 0; 
             }
+
             IloscPaliwa = obecnyStanPaliwa;
+
             return IloscPaliwa;
         }
         public void ShowDetails()
         {
-            throw new NotImplementedException();
+            Console.WriteLine($"Paliwo {IloscPaliwa}/{MaksymalnaIloscPaliwa}");
         }
     }
 }

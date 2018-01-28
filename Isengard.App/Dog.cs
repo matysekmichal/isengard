@@ -54,7 +54,7 @@ namespace Isengard.App
                 TypeOfPet.NoData,
                 Toolbox.InputString("Gatunek psa :", false),
                 Toolbox.InputString("Rasa psa :", false)
-                );
+            );
 
             return result;
         }

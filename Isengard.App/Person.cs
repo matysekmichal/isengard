@@ -62,12 +62,12 @@ namespace Isengard.App
                 this.Name = name;
                 this.Surname = surname;
         }
+
         public void SetData(string name, string surname, int age)
         {
             this.Name = name;
             this.Surname = surname;
             this.Age = age;
-
         }
         public void SetData(string name, string surname, int age, MailAddress email)
         {

@@ -78,9 +78,6 @@ namespace Isengard.App
             }
 
             return result;
-
-        
         }
     }
-
 }
